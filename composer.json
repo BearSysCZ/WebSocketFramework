@@ -2,7 +2,7 @@
     "name": "bearsys/wsf",
     "description": "WebSocket framework for easy creation of scalable WebSocket servers",
     "keywords": ["websocket", "framework", "scalable"],
-    "homepage": "https://github.com/",
+    "homepage": "https://github.com/BearSysCZ/WebSocketFramework/",
     "license": "MIT",
     "authors": [
         {
