@@ -2,7 +2,6 @@
 
 namespace BearSys\WSF\DI;
 
-use BearSys\WSF\Configuration\Configurator;
 use BearSys\WSF\Exceptions\ClassNotFoundException;
 use BearSys\WSF\Exceptions\InstanceAlreadyExistsException;
 use BearSys\WSF\Exceptions\PrimitiveTypeInConstructorException;
@@ -75,6 +74,8 @@ class Container
 				$object = $reflection->newInstanceArgs($constructorInstances);
 			} else
 				$object = new $type;
+
+			$this->instances[$type] = $object;
 			$this->loadInterfaces($object);
 
 			return $object;
