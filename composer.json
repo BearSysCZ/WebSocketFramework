@@ -1,0 +1,25 @@
+{
+    "name": "bearsys/wsf",
+    "description": "WebSocket framework for easy creation of scalable WebSocket servers",
+    "keywords": ["websocket", "framework", "scalable"],
+    "homepage": "https://github.com/",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Marek Frydrych",
+            "email": "frydrych.marek@post.cz"
+        }
+    ],
+    "require": {
+        "php": ">=7.2",
+        "cboden/ratchet": "^0.4.1",
+        "nette/neon": "^2.4",
+        "symfony/yaml": "^4.0",
+        "clue/redis-react": "^2.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "BearSys\\WSF\\": "src"
+        }
+    }
+}
