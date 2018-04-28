@@ -33,7 +33,6 @@ class WebSocketServer
 		$this->dic->add($loop);
 		$this->dic->add($loader);
 		$this->dic->add($configurator);
-		$this->dic->runFactories($configurator->getConfiguration());
 	}
 
 
@@ -41,11 +40,14 @@ class WebSocketServer
 	{
 		$configuration = $this->configurator->getConfiguration();
 
+		$this->dic->runFactories($configuration);
+
+		$broker = $this->dic->get($configuration->broker->type);
+
 		$app = new App($configuration->server->host ?: 'localhost', $configuration->server->port ?: '8080', $configuration->server->address ?: '0.0.0.0', $this->loop);
 		$app->injectDIC($this->dic);
 		$app->setupRoutes();
 
-		$broker = $this->dic->get($configuration->broker->type);
 		$routesHandlers = [];
 		foreach ($configuration->routes as $route => $receiver) {
 			$receiver = $this->dic->get($receiver);

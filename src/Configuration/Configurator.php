@@ -107,7 +107,7 @@ class Configurator
 
 		if (!array_key_exists('broker', $config))
 			$missing[] = 'broker';
-		elseif (array_key_exists('type', $config['broker']))
+		elseif (!array_key_exists('type', $config['broker']))
 			$missing[] = 'broker->type';
 
 		if (!array_key_exists('server', $config))
@@ -121,7 +121,7 @@ class Configurator
 
 		if (!array_key_exists('routes', $config))
 			$missing[] = 'routes';
-		elseif (count($config['routes']))
+		elseif (count($config['routes']) === 0)
 			throw new \Exception();
 
 		if (count($missing))
