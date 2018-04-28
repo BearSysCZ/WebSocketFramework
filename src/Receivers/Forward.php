@@ -24,7 +24,7 @@ class Forward implements IReceiverReturn
 	}
 
 
-	public function getCallback(): callable
+	public function getCallback(): ?callable
 	{
 		return $this->callback;
 	}
